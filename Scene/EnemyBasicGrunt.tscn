@@ -57,7 +57,7 @@ centered = false
 offset = Vector2( -15.889, 0 )
 billboard = 2
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="RayCast" type="RayCast" parent="."]
