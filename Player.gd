@@ -6,8 +6,14 @@ var gravity = -30
 var max_speed = 8
 var mouse_sensitivity = 0.002  # radians/pixel
 
-var velocity = Vector3()
+onready var pistol = preload("res://Scene/Pistol.tscn")
+onready var shotgun = preload("res://Scene/Shotgun.tscn")
+var current_gun = 0
+onready var guns = [pistol,shotgun]
 
+var velocity = Vector3()
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 func get_input():
 	var input_dir = Vector3()
 	# desired move in camera direction
@@ -35,3 +41,24 @@ func _physics_process(delta):
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
 	velocity = move_and_slide(velocity, Vector3.UP, true)
+
+
+func change_gun(gun):
+	$Pivot/Gun.get_child(0).queue_free()
+	var new_gun = guns[gun].instance()
+	$Pivot/Gun.add_child(new_gun)
+	
+func _process(delta):
+	#change gun
+	if Input.is_action_just_pressed("next_gun"):
+		current_gun +=1
+		if current_gun > len(guns) -1 :
+			current_gun = 0
+		change_gun(current_gun)
+	elif Input.is_action_just_pressed("prev_gun"):
+		current_gun -=1
+		if current_gun <0:
+			current_gun = len(guns)-1
+		change_gun(current_gun)
+		
+		

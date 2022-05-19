@@ -11,22 +11,25 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "shoot",
-"speed": 10.0
+"speed": 30.0
 } ]
 
 [node name="Pistol" type="Spatial"]
 script = ExtResource( 5 )
 
-[node name="RayCast" type="RayCast" parent="."]
-enabled = true
-cast_to = Vector3( 0, 0, -10 )
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GunSprite" type="AnimatedSprite3D" parent="."]
+[node name="GunSprite" type="AnimatedSprite" parent="CanvasLayer"]
+position = Vector2( 680, 515 )
+scale = Vector2( 2.27647, 2.27647 )
 frames = SubResource( 1 )
 animation = "idle"
-playing = true
+
+[node name="RayCast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, -200 )

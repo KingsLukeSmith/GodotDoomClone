@@ -24,5 +24,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
 
-[node name="Gun" parent="Pivot/Camera" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.686, -1.521 )
+[node name="Gun" type="Spatial" parent="Pivot"]
+
+[node name="Pistol" parent="Pivot/Gun" instance=ExtResource( 1 )]
