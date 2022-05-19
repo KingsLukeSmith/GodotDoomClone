@@ -16,6 +16,8 @@ func check_hit():
 	for ray in gun_rays:
 		if ray.is_colliding():
 			print(ray.name, "is hitting", ray.get_collider().name)
+			if ray.get_collider().is_in_group("Enemy"):
+				ray.get_collider().take_damage(8)
 		else:
 			print(ray.name," missed")
 	

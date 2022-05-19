@@ -19,9 +19,7 @@ func launch_projectile():
 	new_rocket.global_transform = spawn_location.global_transform
 
 
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		print (spawn_location.global_transform)
+
 		
 func _process(delta):
 	if Input.is_action_just_pressed("shoot") and can_shoot:

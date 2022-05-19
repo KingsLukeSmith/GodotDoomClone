@@ -15,10 +15,23 @@ func _process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+func deal_damage():
+	#direct damage
+	var enemies = get_overlapping_bodies()
+	for body in enemies:
+		if body.is_in_group("Enemy"):
+			body.take_damage(60)
+	#splash damage
+	enemies = $SplashDamage.get_overlapping_bodies()
+	for body in enemies:
+		if body.is_in_group("Enemy"):
+			body.take_damage(30)
+	
 
 func _on_Rocket_body_entered(body):
 	set_process(false) # Replace with function body.
 	$AnimatedSprite3D.play("explode")
+	deal_damage()
 	yield($AnimatedSprite3D,"animation_finished")
+	
 	queue_free()
