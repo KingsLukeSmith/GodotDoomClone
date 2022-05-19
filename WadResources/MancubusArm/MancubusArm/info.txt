@@ -1,0 +1,8 @@
+Name: Mancubus Arm
+Class: Level 6
+Type: Projectile
+Palette: Doom
+Summon: MancubusArmGenerator
+Ammotype: DemonBlood
+AltFire: No
+Akimbo: Yes

@@ -1,0 +1,142 @@
+actor MancubusArm : Weapon
+{
+  Weapon.SelectionOrder 2600
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 20
+  Weapon.AmmoType "DemonBlood"
+  Inventory.PickupMessage "You got the mancubus arm!"
+  States
+  {
+  Ready:
+    MARG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    MARG A 1 A_Lower
+    Loop
+  Select:
+    MARG A 1 A_Raise
+    Loop
+  Fire:
+    MARG B 0 A_FireCustomMissile("MancubusShot")
+    TNT1 A 8 A_GunFlash
+    MARG B 10 
+    Goto Ready
+  Flash:
+    MARF A 3 Bright A_Light1
+    MARF B 5 Bright A_Light2
+    Goto LightDone
+  Spawn:
+    FARM A -1
+    Stop
+  }
+}
+
+actor DualMancubusArm : Weapon
+{
+  Weapon.SelectionOrder 2650
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 20
+  Weapon.AmmoType "DemonBlood"
+  Inventory.PickupMessage "You got the mancubus arm!"
+  States
+  {
+  Ready:
+    MARM A 1 A_WeaponReady
+    Loop
+  Deselect:
+    MARM A 1 A_Lower
+    Loop
+  Select:
+    MARM A 1 A_Raise
+    Loop
+  Fire:
+    MARM B 0 A_FireCustomMissile("MancubusShot",0,1,-15)
+    MARM B 0 A_FireCustomMissile("MancubusShot",0,1,15)
+    TNT1 A 8 A_GunFlash
+    MARM D 5
+    MARM E 5 
+    Goto Ready
+  Flash:
+    MARM B 3 Bright A_Light1
+    MARM C 5 Bright A_Light2
+    Goto LightDone
+  Spawn:
+    FARM A -1
+    Stop
+  }
+}
+
+ACTOR DemonBlood : Ammo
+{
+  Game Doom
+  SpawnID 75
+  Inventory.PickupMessage "Picked up a vail of Demon Blood."
+  Inventory.Amount 20
+  Inventory.MaxAmount 300
+  Ammo.BackpackAmount 20
+  Ammo.BackpackMaxAmount 600
+  Inventory.Icon "BVALA0"
+  States
+  {
+  Spawn:
+    BVAL ABCDCB 6
+    loop
+  }
+}
+
+ACTOR MancubusArmGenerator : CustomInventory
+{ 
+   +FLOORCLIP
+   +AUTOACTIVATE
+   Inventory.MaxAmount 2 
+   Inventory.PickupSound "misc/w_pkup" 
+   Inventory.PickupMessage "You got the Mancubus Arm!" 
+   States 
+   { 
+   Spawn: 
+      FARM A -1 
+      loop 
+   Pickup: 
+      TNT1 A 0 A_JumpIfInventory("DualMancubusArm", 1, 8) 
+      TNT1 A 0 A_JumpIfInventory("MancubusArm", 1, 4) 
+      TNT1 A 0 A_JumpIfInventory("MancubusArmGenerator", 2, 6) 
+      TNT1 A 0 A_GiveInventory("MancubusArm", 1) 
+      TNT1 A 0 A_SelectWeapon("MancubusArm") 
+      Stop 
+      TNT1 A 0 A_TakeInventory("MancubusArm", 1) 
+      TNT1 A 0 A_GiveInventory("DualMancubusArm", 1) 
+      TNT1 A 0 A_SelectWeapon("DualMancubusArm") 
+      Stop 
+      TNT1 A 0 A_TakeInventory("MancubusArmGenerator", 1) 
+      TNT1 A 0 A_GiveInventory("Blood", 20) 
+      Stop 
+   } 
+}
+
+actor MancubusShot
+{
+  Game Doom
+  SpawnID 153
+  Radius 6
+  Height 8
+  Speed 20
+  Damage 8
+  Projectile 
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "weapons/fatshot"
+  DeathSound "weapons/fathit"
+  decal "BigScorch"
+  States
+  {
+  Spawn:
+    MANS AB 4 bright
+    loop
+  Death:
+    MANS C 8 bright
+    MANS D 6 bright
+    MANS E 4 bright
+    stop
+  }
+}

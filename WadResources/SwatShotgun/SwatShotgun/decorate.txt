@@ -1,0 +1,37 @@
+ACTOR SwatShotgun : Weapon
+{
+    +FLOORCLIP
+    Weapon.AmmoType "Shell"
+    Weapon.AmmoGive 5
+    Weapon.AmmoUse 1
+    Weapon.KickBack 700
+    Inventory.PickupSound "Misc/w_pkup" 
+    Inventory.PickupMessage "Picked up a Swat Shotgun."
+    States
+    {
+    Spawn:
+        SPAC A -1
+        Loop
+    Ready:
+        SPAS A 1 A_WeaponReady
+        Loop
+    Deselect:
+        SPAS A 1 A_Lower
+        NULL AA 0 A_Lower
+        Loop
+    Select:
+        SPAS A 1 A_Raise
+        NULL AA 0 A_Raise
+        Loop
+    Fire:
+		NULL A 0 A_GunFlash
+        SPAS B 0 A_PlayWeaponSound("SWATSHOT")
+        SPAF A 1 BRIGHT A_FireBullets(3, 5, 9, 6, "BulletPuff", 1)
+        SPAF BCCB 2 BRIGHT
+		SPAS A 8
+		NULL A 0 A_PlaySound("SWATREL")
+        SPAS BCC 2
+		SPAS CBA 2
+        goto Ready
+}
+}

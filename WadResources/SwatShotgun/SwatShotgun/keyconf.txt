@@ -1,0 +1,3 @@
+weaponsection "swat"
+
+SetSlot 3 SwatShotgun

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kfcls.ogg-54553d6d6c22ee6618a9f453657e057e.oggstr"
+
+[deps]
+
+source_file="res://WadResources/Bearkiller/Bearkiller/sounds/kfcls.ogg"
+dest_files=[ "res://.import/kfcls.ogg-54553d6d6c22ee6618a9f453657e057e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

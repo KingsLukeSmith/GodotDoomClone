@@ -1,0 +1,55 @@
+actor SPAS-12 : Weapon
+{
+  Weapon.SelectionOrder 1250
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 8
+  Weapon.AmmoType "Shell"
+  Inventory.PickupMessage "You got the Franchi SPAS-12!"
+  Obituary "%o got shelled by %k's SPAS."
+  attacksound "weapons/spasshot"
+  scale 0.5
+  decal "bulletchip"
+  States
+  {
+  Ready:
+    SPAG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    SPAG A 1 A_Lower
+    Loop
+  Select:
+    SPAG A 1 A_Raise
+    Loop
+  Fire:
+    SPAG A 0 A_GunFlash
+    SPAG A 4 A_FireBullets (4.6, 4.6, 12, 6, "BulletPuff")
+    SPAG BCDCB 2
+    SPAG D 3
+    SPAG E 3
+    SPAG FGF 5 A_PlaySound("weapons/spascock")
+    SPAG E 3 A_TakeInventory("ShotAmmount",999)
+    SPAG A 4 A_ReFire
+    Goto Ready
+  AltFire:
+    SPAG A 0 A_JumpIfInventory("ShotAmmount",7,"Fire")
+    SPAG A 0 A_GunFlash
+    SPAG A 4 A_FireBullets (5.6, 5.6, 10, 6, "BulletPuff")
+    SPAG BCDCB 2 
+    SPAG A 0 A_GiveInventory("ShotAmmount",1)
+    SPAG A 1 A_ReFire
+    Goto Ready         
+  Flash:
+    SPAF A 4 Bright A_Light2
+    Goto LightDone
+  Spawn:
+    SPAS A -1
+    Stop
+  }
+}
+
+ACTOR ShotAmmount : Ammo
+{
+	Inventory.MaxAmount 8
+	Ammo.BackpackAmount 0
+	Ammo.BackpackMaxAmount 8
+}

@@ -8,8 +8,9 @@ var mouse_sensitivity = 0.002  # radians/pixel
 
 onready var pistol = preload("res://Scene/Pistol.tscn")
 onready var shotgun = preload("res://Scene/Shotgun.tscn")
+onready var rocket = preload("res://Scene/RocketLauncher.tscn")
 var current_gun = 0
-onready var guns = [pistol,shotgun]
+onready var guns = [pistol,shotgun,rocket]
 
 var velocity = Vector3()
 func _ready():

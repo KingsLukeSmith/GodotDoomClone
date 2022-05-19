@@ -1,0 +1,20 @@
+Name: Rivet Gun
+
+Class: 6
+Type: Projectile
+Palette: Doom
+Summon: RivetGun
+Ammo Type: Rivets
+Altfire: Yes
+Powered Mode: No
+Added States: No
+
+
+Description:
+A powerful rivet tool heavily modified for combat, offset by a low maximum ammo capacity, slight inaccuracy, and slower firing speed. 
+The rivets have the ability to pierce through multiple enemies.
+
+Primary fire features a sustained fire mode.
+Secondary fire shoots a rivet that explodes and releases 5 rebounding rivets in several directions.
+
+

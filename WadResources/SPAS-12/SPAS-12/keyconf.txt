@@ -1,0 +1,2 @@
+weaponsection "SPAS-12"
+addslotdefault 3 SPAS-12

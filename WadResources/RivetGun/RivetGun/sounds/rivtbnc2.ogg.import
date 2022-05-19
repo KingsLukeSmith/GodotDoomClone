@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rivtbnc2.ogg-d9ca109e1fdd1429ddfe13bc0b197028.oggstr"
+
+[deps]
+
+source_file="res://WadResources/RivetGun/RivetGun/sounds/rivtbnc2.ogg"
+dest_files=[ "res://.import/rivtbnc2.ogg-d9ca109e1fdd1429ddfe13bc0b197028.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Graphics/Guns/Pistol/2pisb0.png" type="Texture" id=1]
-[ext_resource path="res://Graphics/Guns/Pistol/2pisd0.png" type="Texture" id=2]
-[ext_resource path="res://Graphics/Guns/Pistol/2pisf0.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/Guns/Pistol/2pisc0.png" type="Texture" id=4]
-[ext_resource path="res://Scene/Pistol.gd" type="Script" id=5]
+[ext_resource path="res://WadResources/Pistol/2pisb0.png" type="Texture" id=1]
+[ext_resource path="res://WadResources/Pistol/2pisd0.png" type="Texture" id=2]
+[ext_resource path="res://WadResources/Pistol/2pisf0.png" type="Texture" id=3]
+[ext_resource path="res://WadResources/Pistol/2pisc0.png" type="Texture" id=4]
+[ext_resource path="res://Scene/gun.gd" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -25,11 +25,14 @@ script = ExtResource( 5 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GunSprite" type="AnimatedSprite" parent="CanvasLayer"]
-position = Vector2( 680, 515 )
+position = Vector2( 680, 435 )
 scale = Vector2( 2.27647, 2.27647 )
 frames = SubResource( 1 )
 animation = "idle"
+centered = false
 
-[node name="RayCast" type="RayCast" parent="."]
+[node name="GunRays" type="Spatial" parent="."]
+
+[node name="RayCast" type="RayCast" parent="GunRays" groups=["gun_ray"]]
 enabled = true
 cast_to = Vector3( 0, 0, -200 )
