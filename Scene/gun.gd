@@ -5,7 +5,7 @@ extends Spatial
 # var a = 2
 # var b = "text"
 var can_shoot = true
-onready var gunsprite = $CanvasLayer/GunSprite
+onready var gunsprite = $CanvasLayer/Control/GunSprite
 onready var gun_rays = $GunRays.get_children()
 onready var flash = preload("res://Scene/MuzzleFlash.tscn")
 # Called when the node enters the scene tree for the first time.

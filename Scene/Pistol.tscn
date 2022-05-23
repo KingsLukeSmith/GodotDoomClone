@@ -24,12 +24,24 @@ script = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GunSprite" type="AnimatedSprite" parent="CanvasLayer"]
-position = Vector2( 680, 435 )
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="GunSprite" type="AnimatedSprite" parent="CanvasLayer/Control"]
+position = Vector2( -46, 52 )
+rotation = 3.14159
 scale = Vector2( 2.27647, 2.27647 )
 frames = SubResource( 1 )
 animation = "idle"
+playing = true
 centered = false
+flip_h = true
+flip_v = true
 
 [node name="GunRays" type="Spatial" parent="."]
 
