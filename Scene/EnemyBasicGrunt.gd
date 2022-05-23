@@ -41,3 +41,4 @@ func death():
 
 func _on_Timer_timeout():
 	move_to(player.global_transform.origin) # Replace with function body.
+

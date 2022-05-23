@@ -10,7 +10,7 @@ extents = Vector3( 0.35738, 0.0997269, 0.403959 )
 radius = 0.548857
 height = 0.799886
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["Player"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -20,7 +20,7 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.15798, 0 )
 shape = SubResource( 2 )
 
-[node name="Pivot" type="Spatial" parent="." groups=["Player"]]
+[node name="Pivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57815, 0 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
