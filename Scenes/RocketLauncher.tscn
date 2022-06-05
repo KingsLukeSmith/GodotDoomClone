@@ -1,0 +1,57 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgak0.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgae0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgah0.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgad0.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgaa0.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgan0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgao0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgag0.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgaf0.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgac0.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgai0.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgal0.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgab0.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgaj0.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/SeekerBazooka/SPRITES/rpgam0.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/RocketLauncher.gd" type="Script" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 1 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 8.0
+} ]
+
+[node name="RocketLauncher" type="Spatial"]
+script = ExtResource( 16 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="GunSprite" type="AnimatedSprite" parent="CanvasLayer/Control"]
+position = Vector2( 46, 48 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="Position3D" type="Position3D" parent="."]

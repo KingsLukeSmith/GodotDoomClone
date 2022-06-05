@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rpgopn.wav-1b5af7b1d1cf6f68386a70628035b50c.sample"
+
+[deps]
+
+source_file="res://Sprites/SeekerBazooka/sounds/rpgopn.wav"
+dest_files=[ "res://.import/rpgopn.wav-1b5af7b1d1cf6f68386a70628035b50c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

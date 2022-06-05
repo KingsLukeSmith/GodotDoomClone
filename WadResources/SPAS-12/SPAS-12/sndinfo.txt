@@ -1,2 +1,0 @@
-weapons/spasshot	SPASSHOT
-weapons/spascock	SPASCOCK

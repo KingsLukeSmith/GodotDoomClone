@@ -1,6 +1,0 @@
-Submitted: Xim
-Decorate: Xim
-Sprites: Scuba Steve, ID Software
-GLDefs: Xim
-Sounds: id Software
-Idea Base: Mancubus from DooM II
